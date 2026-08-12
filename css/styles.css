@@ -1,0 +1,183 @@
+/* ---------------------------------------------
+   Auvello — starter site styles
+   Palette: warm ivory, charcoal, terracotta accent
+   Inspired by contemporary Italian design: generous
+   whitespace, refined serif type, understated detail.
+--------------------------------------------- */
+
+:root {
+  --color-bg: #f6f1e9;
+  --color-bg-alt: #efe7d8;
+  --color-ink: #2b2620;
+  --color-ink-soft: #5c5348;
+  --color-accent: #b5602f;
+  --color-accent-soft: #d8b895;
+  --color-line: #ddd2bd;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --max-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Decorative "panel" strip, evoking a row of fabric-wrapped acoustic panels */
+.panels {
+  display: flex;
+  width: 100%;
+  height: 6px;
+}
+
+.panels span {
+  flex: 1;
+  background-color: var(--color-accent-soft);
+}
+
+.panels span:nth-child(1) { background-color: #c17a4a; }
+.panels span:nth-child(2) { background-color: #d8b895; }
+.panels span:nth-child(3) { background-color: #8a7256; }
+.panels span:nth-child(4) { background-color: #d8b895; }
+.panels span:nth-child(5) { background-color: #b5602f; }
+
+/* Header */
+.site-header {
+  padding: 2.5rem 1.5rem 0;
+  text-align: center;
+}
+
+.wordmark {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  padding-left: 0.42em; /* balances letter-spacing on the right */
+  color: var(--color-ink);
+}
+
+/* Hero */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: rise 0.9s ease-out 0.15s forwards;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.lede {
+  margin: 1.75rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--color-ink-soft);
+  max-width: 46ch;
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin: 2.5rem 0 1.75rem;
+}
+
+.coming-soon {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
+}
+
+/* Footer */
+.site-footer {
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--color-line);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile refinements */
+@media (max-width: 480px) {
+  .wordmark {
+    font-size: 0.95rem;
+    letter-spacing: 0.32em;
+    padding-left: 0.32em;
+  }
+
+  .site-header {
+    padding-top: 2rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .lede {
+    font-size: 0.98rem;
+  }
+}
